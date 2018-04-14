@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>HOME</title>
+    <script th:src="@{/jquery/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/js/sockjs.min.js}"></script>
+    <script th:src="@{/js/stomp.min.js}"></script>
+</head>
+<body>
+    <p>
+        聊天窗口
+    </p>
+    <form id="vayneForm">
+        <textarea rows="4" cols="60" name="text"></textarea>
+        <input type="submit"/>
+    </form>
+    <div id="outPut"></div>
+</body>
+<script th:inline="javascript">
+    var sock = new SockJS('/endpointChat');
+    var stomp = Stomp.over(sock);
+    stomp.connect('guest','guest',function (frame) {
+
+        
+	});
+    $('#vayneForm').submit(function (e) {
+        e.preventDefault();
+        var text = $('#vayneForm').find('textarea[name="text"]').val();
+        sendSplittle(text);
+	});
+    function sendSplittle(text) {
+		stomp.send("/chat",{},text);
+	}
+	$('#stop').click(function () {
+        sock.close();
+	})
+</script>
+</html>
