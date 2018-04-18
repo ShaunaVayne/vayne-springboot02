@@ -22,7 +22,7 @@ public class UserController {
 	private IUserManager userManager;
 
 	/**
-	 * post方式, 使用json提交
+	 * post方式, 使用json提交aaaa
 	 * @param user
 	 * @return
 	 */
