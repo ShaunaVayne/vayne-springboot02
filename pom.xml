@@ -7,6 +7,7 @@
 	<groupId>cn.vayne.springboot</groupId>
 	<artifactId>springboot-version01</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<modules>
 		<module>springboot-websocket</module>
@@ -15,6 +16,7 @@
 		<module>springboot-jpa</module>
 		<module>springboot-cache</module>
 		<module>springboot-security</module>
+		<module>springboot-mybatis</module>
 	</modules>
 
 	<parent>
