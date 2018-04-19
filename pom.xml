@@ -17,6 +17,8 @@
 		<module>springboot-cache</module>
 		<module>springboot-security</module>
 		<module>springboot-mybatis</module>
+		<module>springboot-jms</module>
+		<module>springboot-amqp</module>
 	</modules>
 
 	<parent>
