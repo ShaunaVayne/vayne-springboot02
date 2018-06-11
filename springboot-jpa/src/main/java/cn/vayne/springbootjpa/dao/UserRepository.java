@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	//2
 	User findByNameAndAddress(String name, String address);
 
-	//3
+	//3 2
 	@Query("select u from User u where u.name = :name and u.address = :address")
 	User withNameAndAddressQuery(@Param("name") String name,@Param("address") String address);
 
