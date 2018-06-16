@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * @Author: WangKun
- * @Description: test 1.0
+ * @Description: test 1.0 2.0
  * @Date: Created in 2018/3/30 上午10:58
  * @ProjectName: vayne-springboot02
  * @Version: 1.0.0
