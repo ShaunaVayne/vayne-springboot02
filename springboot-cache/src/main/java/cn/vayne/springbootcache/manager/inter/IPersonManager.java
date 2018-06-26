@@ -16,4 +16,8 @@ public interface IPersonManager {
 	void remove(Integer id);
 
 	Person findPerson(Person person);
+
+	Person test(Person e);
+
+	Person testGet(Person p);
 }

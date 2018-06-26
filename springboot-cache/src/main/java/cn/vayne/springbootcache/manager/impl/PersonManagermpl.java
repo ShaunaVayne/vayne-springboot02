@@ -9,6 +9,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @Author: WangKun
@@ -28,7 +29,8 @@ public class PersonManagermpl implements IPersonManager {
 	@CachePut(value = "person", key = "#person.id")
 	public Person save(Person person) {
 		log.info("对象信息id为{}进入缓存",person.getId());
-		return personRepository.save(person);
+		return person;
+		//return personRepository.save(person);
 	}
 
 	@Override
@@ -43,5 +45,24 @@ public class PersonManagermpl implements IPersonManager {
 	public Person findPerson(Person person) {
 		log.info("id为{}的数据从缓存中取出",person.getId());
 		return personRepository.findOne(person.getId());
+	}
+
+	@Override
+	@CachePut(value = "person2", key = "#e.id")
+	public Person test(Person e) {
+		log.info("id为{}入缓存",e);
+		return e;
+	}
+
+	@Override
+	@Cacheable(value = "person2", key = "#p.id")
+	public Person testGet(Person p) {
+		log.info("id为{}出缓存",p);
+		return p;
+	}
+
+	@CacheEvict(value = "person2")
+	public void cls() {
+		log.info("进方法");
 	}
 }
